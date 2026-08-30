@@ -333,12 +333,39 @@ nav a:hover::after{width:100%;}
 .controls button:hover{border-color:var(--accent); color:var(--accent);}
 .datetime{display:flex; gap:clamp(8px, 1.2vw, 14px); color:var(--fg); font-size:clamp(10px, 1.2vw, 13px); white-space:nowrap;}
 
+/* ===== CHANGED: header stacks to single column at 900px ===== */
 @media(max-width:900px){
-  header{grid-template-columns:auto auto; row-gap:12px;}
+  header{
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:10px clamp(10px, 3.5vw, 18px);
+  }
+  .brand{
+    justify-self:center;
+    font-size:clamp(7px, 2vw, 11px);
+    max-width:90%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .controls{
+    justify-content:center;
+  }
+  .datetime{
+    flex-direction:row;
+    gap:8px;
+    justify-content:center;
+    font-size:clamp(8px, 1.8vw, 11px);
+  }
   nav{
-    grid-column:1 / -1; justify-self:stretch;
-    justify-content:center; order:3;
-    padding-top:12px; border-top:1px solid var(--line);
+    grid-column:1 / -1;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding-top:8px;
+    border-top:1px solid var(--line);
+    gap:6px clamp(12px, 3vw, 20px);
+  }
+  nav a{
+    font-size:clamp(12px, 2.8vw, 15px);
   }
 }
 
@@ -817,19 +844,9 @@ nav a:hover::after{width:100%;}
     width:clamp(180px, 52vw, 320px);
   }
   .signature{width:240px;}
-  header{
-    padding:clamp(10px, 2.5vw, 18px) clamp(16px, 4vw, 28px);
-  }
-  .brand{
-    font-size:clamp(8px, 1.8vw, 12px);
-    overflow:hidden;
-    text-overflow:ellipsis;
-    max-width:200px;
-  }
-  .datetime{flex-direction:column; gap:3px;}
 }
 
-/* Phones — HEADER RESTRUCTURED TO STACK */
+/* Phones */
 @media(max-width:680px){
   .panel{
     max-width:96%;
@@ -896,37 +913,6 @@ nav a:hover::after{width:100%;}
   .contact-info a{
     padding:13px 18px;
     font-size:.95rem;
-  }
-
-  /* --- header: single-column centered stack --- */
-  header{
-    grid-template-columns:1fr;
-    gap:8px;
-    padding:10px clamp(10px, 3.5vw, 18px);
-  }
-  .brand{
-    justify-self:center;
-    font-size:clamp(7px, 2vw, 10px);
-    max-width:85%;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    text-align:center;
-  }
-  .controls{
-    justify-content:center;
-  }
-  .datetime{
-    flex-direction:row;
-    gap:6px;
-    justify-content:center;
-    font-size:clamp(8px, 2vw, 10px);
-  }
-  nav{
-    gap:5px clamp(10px, 3vw, 18px);
-    padding-top:8px;
-  }
-  nav a{
-    font-size:clamp(11px, 3vw, 14px);
   }
 }
 
@@ -1023,7 +1009,6 @@ nav a:hover::after{width:100%;}
     font-size:.95rem;
   }
 
-  /* --- header: tighter spacing --- */
   header{
     padding:8px clamp(8px, 3vw, 14px);
     gap:6px;
@@ -1075,7 +1060,6 @@ nav a:hover::after{width:100%;}
     width:120px;
   }
 
-  /* --- header: minimum viable --- */
   header{
     padding:6px 8px;
     gap:5px;
@@ -1129,7 +1113,6 @@ nav a:hover::after{width:100%;}
   .scroll-hint{display:none;}
   .signature{display:none;}
 
-  /* --- header: back to 3-column with scrollable nav --- */
   header{
     grid-template-columns:auto 1fr auto;
     gap:4px 10px;
