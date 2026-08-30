@@ -1170,3 +1170,204 @@ nav a:hover::after{width:100%;}
     box-shadow:none !important;
   }
 }
+
+/* ===== RESPONSIVE FIXES ONLY ===== */
+
+/* Prevent the header from becoming wider than the screen */
+@media (max-width: 1100px){
+  header{
+    grid-template-columns: 1fr auto;
+  }
+
+  header .brand{
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  header nav{
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  header .controls{
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* Tablets */
+@media (max-width: 850px){
+  .hero{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-text{
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-row,
+  .post-grid,
+  .skill-grid{
+    width: 100%;
+    min-width: 0;
+  }
+
+  .proj-card-flip,
+  .post-card,
+  .skill-card{
+    min-width: 0;
+  }
+
+  .skill-info{
+    min-width: 0;
+  }
+}
+
+/* Phones */
+@media (max-width: 680px){
+  header{
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  header .brand,
+  header .controls,
+  header nav{
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: center;
+  }
+
+  header .brand{
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav{
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 8px 4px;
+    scrollbar-width: none;
+  }
+
+  header nav::-webkit-scrollbar{
+    display: none;
+  }
+
+  header nav a{
+    flex: 0 0 auto;
+  }
+
+  header .controls{
+    width: 100%;
+  }
+
+  .hero{
+    min-height: auto;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .avatar-wrap{
+    max-width: 260px;
+  }
+
+  .hero-text{
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .hero-text .name{
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .signature{
+    max-width: 100%;
+    height: auto;
+  }
+
+  .panel{
+    width: 96%;
+    max-width: 96%;
+  }
+
+  .card-row,
+  .post-grid,
+  .skill-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card{
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .row-panels{
+    width: 96%;
+    max-width: 96%;
+  }
+
+  .modal-overlay{
+    padding: 12px;
+  }
+
+  .modal{
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 400px){
+  header{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .hero{
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  .hero-text .name{
+    font-size: clamp(1.45rem, 9vw, 2.4rem);
+  }
+
+  .panel{
+    width: 94%;
+    max-width: 94%;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .skill-card{
+    padding: 14px;
+  }
+
+  .skill-info p{
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Touch screens: don't depend on hover for layout */
+@media (hover: none) and (pointer: coarse){
+  .proj-card-flip:hover .proj-card-flip-inner{
+    transform: none;
+  }
+
+  .panel:hover,
+  .about-part:hover,
+  .skill-card:hover,
+  .post-card:hover{
+    transform: none;
+  }
+}
