@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link rel="stylesheet" href="myPortfolio.css">
+<title>Thisari Rathnasekara</title>
+</head>
+<body data-theme="light">
+
+<div class="loader" id="loader">
+  <div class="loader-content">
+    <div class="loader-brand">Loading...</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<canvas id="gridCanvas" aria-hidden="true"></canvas>
+<div class="bg-glow" id="bgGlow" aria-hidden="true"></div>
+
+<div class="bg-scene" aria-hidden="true">
+  <div class="sky-star ss1" id="star1">✦</div><div class="sky-star ss2" id="star2">✦</div>
+  <div class="sky-star ss3" id="star3">✦</div><div class="sky-star ss4" id="star4">✦</div>
+  <div class="sky-star ss5" id="star5">✦</div><div class="sky-star ss6" id="star6">✦</div>
+  <div class="sky-star ss7" id="star7">✦</div><div class="sky-star ss8" id="star8">✦</div>
+  <div class="sky-star ss9" id="star9">✦</div><div class="sky-star ss10" id="star10">✦</div>
+  <div class="sky-star ss11" id="star11">✦</div><div class="sky-star ss12" id="star12">✦</div>
+  <div class="sky-star ss13" id="star13">✦</div><div class="sky-star ss14" id="star14">✦</div>
+  <div class="sky-star ss15" id="star15">✦</div><div class="sky-star ss16" id="star16">✦</div>
+  <div class="sky-star ss17" id="star17">✦</div><div class="sky-star ss18" id="star18">✦</div>
+  <div class="sky-star ss19" id="star19">✦</div><div class="sky-star ss20" id="star20">✦</div>
+  <div class="sky-star ss21" id="star21">✦</div><div class="sky-star ss22" id="star22">✦</div>
+  <div class="sky-star ss23" id="star23">✦</div><div class="sky-star ss24" id="star24">✦</div>
+  <div class="sky-star ss25" id="star25">✦</div><div class="sky-star ss26" id="star26">✦</div>
+  <div class="sky-star ss27" id="star27">✦</div><div class="sky-star ss28" id="star28">✦</div>
+  <div class="sky-star ss29" id="star29">✦</div><div class="sky-star ss30" id="star30">✦</div>
+</div>
+
+<!-- Confetti Container -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- Hidden Message -->
+<div class="hidden-message" id="hiddenMessage">
+  <div class="hidden-message-content">
+    <h3>🎮 You found the secret!</h3>
+    <p>Thanks for exploring my portfolio thoroughly. You must be a curious person, and I like that!</p>
+    <button id="closeSecret">Close</button>
+  </div>
+</div>
+
+<div class="scroll-indicator" id="scrollIndicator">
+  <div class="scroll-track" id="scrollTrack">
+    <div class="scroll-dot" id="scrollDot"></div>
+  </div>
+</div>
+
+<div class="scroll-hint" id="scrollHint">
+  <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+  <span>SCROLL</span>
+</div>
+
+<header>
+  <div class="brand">THISARIRATHNASEKARA@2026</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#posts">Posts</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="#message">Message</a>
+  </nav>
+  <div class="controls">
+    <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme">Light</button>
+    <div class="datetime">
+      <span id="clock">--:--</span>
+      <span id="date">--- -- ----</span>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent">
+  <section class="hero" id="hero">
+    <div class="avatar-wrap">
+      <img id="avatar" class="avatar" src="pic.jpeg" alt="Thisari Rathnasekara">
+    </div>
+    <div class="hero-text">
+      <p class="hi">Hi, </p>
+      <p class="im">I'm</p>
+      <h1 class="name" id="heroName">Thisari Rathnasekara</h1>
+      <!-- Signature SVG -->
+      <svg class="signature" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+        <path class="signature-path" d="M 20,50 C 50,20 80,80 110,50 C 140,20 170,80 200,50 C 230,20 260,80 290,50 C 320,20 350,80 380,50 C 410,20 440,80 470,50" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="about" class="panel reveal">
+    <h2>About</h2>
+    <div class="panel-body">
+      <div class="about-part">
+        <p>I'm Thisari Rathnasekara, a Computer Science undergraduate at General Sir John Kotelawala Defence University (KDU). I am passionate about Artificial Intelligence and ML, and enjoy diving deep into data whether it's querying databases or exploring how AI can solve real problems. Beyond academics, I was part of the Environmental Society in school which helped me shape my teamwork, compassion and awareness of the world around me.</p>
+      </div>
+      </div>
+  </section>
+
+  <section id="projects" class="panel reveal">
+    <h2>Projects</h2>
+    <div class="card-row">
+      <div class="proj-card-flip">
+        <div class="proj-card-flip-inner">
+          <div class="proj-card-front">
+            <h3>Smart Robot for Award Distribution</h3>
+            <span class="flip-hint">hover to see details</span>
+          </div>
+          <div class="proj-card-back">
+            <p>Collaborative hardware project combining face recognition and autonomous navigation to automate certificate delivery and eliminate hand-off delays at formal ceremonies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card-flip">
+        <div class="proj-card-flip-inner">
+          <div class="proj-card-front">
+            <h3>Personal Portfolio</h3>
+            <span class="flip-hint">hover to see details</span>
+          </div>
+          <div class="proj-card-back">
+            <p>Framework-free portfolio website built from scratch with HTML, CSS and JS. Features a light/dark theme, interactive canvas grid waves, scroll animations and a Formspree contact form.</p>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card-flip">
+        <div class="proj-card-flip-inner">
+          <div class="proj-card-front">
+            <h3>Online Grocery Store Management System</h3>
+            <span class="flip-hint">hover to see details</span>
+          </div>
+          <div class="proj-card-back">
+            <p>Collaborative full-stack e-commerce app featuring real-time product browsing, cart management and seamless order processing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="posts" class="panel reveal">
+    <h2>Posts</h2>
+    <div class="post-grid">
+      <a href="https://www.linkedin.com/posts/thisari-rathnasekara-b8b8b43ba_mgthisari-rathnasekara-has-successfully-activity-7492296850557886466-XSAB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZK3JsBNmJSABqHcEOHj953i1i8XKjJ3I0" target="_blank" rel="noopener" class="post-card">
+        <div class="post-body">
+          <h3>Introduction to HTML</h3>
+          <p>I am super excited to share that I've just completed Introduction to HTML. I had a great experience learning industry-aligned skills of Software Development.</p>
+          <span class="post-view">View</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/thisari-rathnasekara-b8b8b43ba_research-ieee-ricerca30-activity-7492296197647474688-dkP2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGZK3JsBNmJSABqHcEOHj953i1i8XKjJ3I0" target="_blank" rel="noopener" class="post-card">
+        <div class="post-body">
+          <h3>IEEE Ricerca 3.0</h3>
+          <p>Excited to have completed the RICERCA 3.0 Research Awareness Session Series by IEEE WIE Student Branch of KDU.</p>
+          <span class="post-view">View</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="experience" class="panel reveal">
+    <h2>Experience</h2>
+    <div class="post-grid">
+      <a href="https://www.linkedin.com/in/thisari-rathnasekara-b8b8b43ba/details/experience/" target="_blank" rel="noopener" class="post-card">
+        <div class="post-img logo-small">
+          <img src="https://z-cdn-media.chatglm.cn/files/e8b947d0-84c8-434b-89d2-85545a19ed07.png?auth_key=1888029723-646f03bfc72f48c79a08428804a4f35e-0-ad9d4ddba0b9074e32e0a48d5137eeeb" alt="Commercial Bank of Ceylon PLC">
+        </div>
+        <div class="post-body">
+          <span class="post-badge badge-exp">Internship</span>
+          <h3>Intern — Commercial Bank of Ceylon PLC</h3>
+          <p class="post-dates">May 2025 — Jan 2026 · 9 months · On-site, Sri Lanka</p>
+          <p>Gained hands-on experience in the banking and financial services sector, working across core operations and learning how technology supports large-scale enterprise workflows.</p>
+          <span class="post-view">View</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="skills" class="panel reveal">
+    <h2>Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-card"><i class="devicon-html5-plain"></i><div class="skill-info"><h3>HTML</h3><p>Semantic markup, accessibility standards, and responsive page structure</p></div></div>
+      <div class="skill-card"><i class="devicon-css3-plain"></i><div class="skill-info"><h3>CSS</h3><p>Flexbox, Grid, animations, and modern layout techniques</p></div></div>
+      <div class="skill-card"><i class="devicon-javascript-plain"></i><div class="skill-info"><h3>JavaScript</h3><p>ES6+, DOM manipulation, async patterns, and interactive UIs</p></div></div>
+      <div class="skill-card"><i class="devicon-python-plain"></i><div class="skill-info"><h3>Python</h3><p>Scripting, data handling, automation, and back-end logic</p></div></div>
+      <div class="skill-card"><i class="devicon-cplusplus-plain"></i><div class="skill-info"><h3>C++</h3><p>Object-oriented programming, memory management, and algorithms</p></div></div>
+      <div class="skill-card"><i class="devicon-java-plain"></i><div class="skill-info"><h3>Java</h3><p>Object-oriented design, data structures, and application development</p></div></div>
+    </div>
+  </section>
+
+  <div class="row-panels">
+    <section id="contact" class="panel reveal panel-half">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <a href="mailto:thisarirathnasekara@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/thisari-rathnasekara-b8b8b43ba/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/thisarirathnasekara" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+    <section id="message" class="panel reveal panel-half message-panel">
+      <h2>Message</h2>
+      <div class="msg-box" id="openMsg" role="button" tabindex="0" aria-label="Open message form">
+        <span>Send a Message</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="close" id="closeModal">&times;</button>
+    <h3>Send a message</h3>
+    <form id="msgForm" action="https://formspree.io/f/xzebzvoj" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+      <button type="submit" class="submit">Send</button>
+      <p id="formStatus" class="form-status"></p>
+    </form>
+  </div>
+</div>
+
+<script src="myPortfolio.js"></script>
+</body>
+</html>
