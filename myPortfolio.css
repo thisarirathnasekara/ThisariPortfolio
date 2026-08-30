@@ -829,7 +829,7 @@ nav a:hover::after{width:100%;}
   .datetime{flex-direction:column; gap:3px;}
 }
 
-/* Phones */
+/* Phones — HEADER RESTRUCTURED TO STACK */
 @media(max-width:680px){
   .panel{
     max-width:96%;
@@ -896,6 +896,37 @@ nav a:hover::after{width:100%;}
   .contact-info a{
     padding:13px 18px;
     font-size:.95rem;
+  }
+
+  /* --- header: single-column centered stack --- */
+  header{
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:10px clamp(10px, 3.5vw, 18px);
+  }
+  .brand{
+    justify-self:center;
+    font-size:clamp(7px, 2vw, 10px);
+    max-width:85%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-align:center;
+  }
+  .controls{
+    justify-content:center;
+  }
+  .datetime{
+    flex-direction:row;
+    gap:6px;
+    justify-content:center;
+    font-size:clamp(8px, 2vw, 10px);
+  }
+  nav{
+    gap:5px clamp(10px, 3vw, 18px);
+    padding-top:8px;
+  }
+  nav a{
+    font-size:clamp(11px, 3vw, 14px);
   }
 }
 
@@ -969,20 +1000,6 @@ nav a:hover::after{width:100%;}
     width:clamp(160px, 55vw, 200px);
     height:50px;
   }
-  nav{gap:8px 14px;}
-  nav a{font-size:13px;}
-  .brand{
-    font-size:clamp(7px, 2.2vw, 11px);
-    max-width:140px;
-  }
-  .controls button{
-    font-size:9px;
-    padding:4px 10px;
-  }
-  .datetime{font-size:9px;}
-  .scroll-indicator{right:10px;}
-  .scroll-track{height:150px;}
-  .scroll-dot{width:13px; height:13px;}
   .msg-box{
     min-height:95px;
     font-size:1rem;
@@ -1005,6 +1022,33 @@ nav a:hover::after{width:100%;}
     padding:12px;
     font-size:.95rem;
   }
+
+  /* --- header: tighter spacing --- */
+  header{
+    padding:8px clamp(8px, 3vw, 14px);
+    gap:6px;
+  }
+  .brand{
+    font-size:clamp(6px, 2.2vw, 9px);
+    max-width:90%;
+  }
+  nav{
+    gap:4px clamp(8px, 2.5vw, 14px);
+  }
+  nav a{
+    font-size:clamp(10px, 3.2vw, 13px);
+  }
+  .controls button{
+    font-size:8px;
+    padding:3px 8px;
+  }
+  .datetime{
+    font-size:clamp(7px, 2.2vw, 9px);
+    gap:4px;
+  }
+  .scroll-indicator{right:10px;}
+  .scroll-track{height:150px;}
+  .scroll-dot{width:13px; height:13px;}
 }
 
 /* Very small phones (e.g. iPhone SE 320px) */
@@ -1030,8 +1074,30 @@ nav a:hover::after{width:100%;}
   .avatar-wrap{
     width:120px;
   }
-  .brand{max-width:100px; font-size:7px;}
-  nav a{font-size:12px;}
+
+  /* --- header: minimum viable --- */
+  header{
+    padding:6px 8px;
+    gap:5px;
+  }
+  .brand{
+    font-size:6px;
+    max-width:95%;
+    letter-spacing:.02em;
+  }
+  nav{
+    gap:3px clamp(5px, 2.5vw, 10px);
+  }
+  nav a{
+    font-size:clamp(9px, 3.5vw, 11px);
+  }
+  .controls button{
+    font-size:7px;
+    padding:2px 6px;
+  }
+  .datetime{
+    font-size:6px;
+  }
 }
 
 /* Tall / narrow screens (foldable phones) */
@@ -1062,6 +1128,35 @@ nav a:hover::after{width:100%;}
   }
   .scroll-hint{display:none;}
   .signature{display:none;}
+
+  /* --- header: back to 3-column with scrollable nav --- */
+  header{
+    grid-template-columns:auto 1fr auto;
+    gap:4px 10px;
+    padding:4px 12px;
+  }
+  .brand{
+    max-width:160px;
+    text-align:left;
+    justify-self:start;
+    font-size:8px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  nav{
+    grid-column:auto;
+    border-top:none;
+    padding-top:0;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    justify-content:flex-start;
+    gap:0 12px;
+  }
+  nav::-webkit-scrollbar{display:none;}
+  nav a{font-size:11px; flex-shrink:0;}
+  .datetime{flex-direction:row; gap:5px;}
 }
 
 /* Large screens — cap panel width */
