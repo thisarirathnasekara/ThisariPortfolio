@@ -260,12 +260,21 @@ function updateScrollUI() {
   var progress = docHeight > 0 ? scrollTop / docHeight : 0;
   var dotMax = TRACK_HEIGHT - DOT_SIZE;
   scrollDot.style.top = (progress * dotMax) + 'px';
-  if (scrollTop > 100) {
+
+  // Also fade the secret hint when user starts scrolling
+  var secretHint = document.getElementById('secretHint');
+  if (scrollTop > 60) {
     scrollIndicator.classList.add('visible');
     scrollHint.classList.add('hidden');
+    if (secretHint && !secretHint.classList.contains('found')) {
+      secretHint.style.opacity = '0';
+    }
   } else {
     scrollIndicator.classList.remove('visible');
     scrollHint.classList.remove('hidden');
+    if (secretHint && !secretHint.classList.contains('found')) {
+      secretHint.style.opacity = '';
+    }
   }
 }
 window.addEventListener('scroll', function() {
@@ -373,6 +382,10 @@ document.addEventListener('keydown', function(e) {
 });
 
 function activateSecret() {
+  // Hide the hint once the secret is found
+  var hint = document.getElementById('secretHint');
+  if (hint) hint.classList.add('found');
+  
   createConfetti();
   
   setTimeout(function() {
