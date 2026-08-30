@@ -685,7 +685,69 @@ nav a:hover::after{width:100%;}
 }
 .form-status.success{color:#4a9d5f;}
 .form-status.error{color:#c0392b;}
-
+/* ===== Secret hint ===== */
+.secret-hint{
+  position:fixed;
+  bottom:70px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:6px;
+  z-index:15;
+  cursor:default;
+  opacity:0;
+  animation:secretHintAppear 1s ease 8s forwards;
+  transition:opacity .4s ease;
+}
+.secret-hint.found{
+  opacity:0 !important;
+  pointer-events:none;
+}
+.secret-hint-icon{
+  font-size:.7rem;
+  opacity:.25;
+  color:var(--muted);
+}
+.secret-hint-text{
+  font-family:var(--mono);
+  font-size:clamp(.55rem, .7vw, .65rem);
+  color:var(--muted);
+  opacity:.22;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  user-select:none;
+}
+.secret-hint:hover .secret-hint-text{
+  opacity:.55;
+}
+.secret-hint:hover .secret-hint-icon{
+  opacity:.5;
+}
+@keyframes secretHintAppear{
+  0%{opacity:0;}
+  100%{opacity:1;}
+}
+@media(max-width:680px){
+  .secret-hint{
+    bottom:64px;
+    gap:4px;
+  }
+  .secret-hint-text{
+    font-size:.52rem;
+  }
+  .secret-hint-icon{
+    font-size:.6rem;
+  }
+}
+@media(max-width:480px){
+  .secret-hint{
+    bottom:58px;
+  }
+  .secret-hint-text{
+    font-size:.48rem;
+  }
+}
 /* ===== Cursor trail ===== */
 .trail-dot{
   position:fixed; width:8px; height:8px; border-radius:50%;
