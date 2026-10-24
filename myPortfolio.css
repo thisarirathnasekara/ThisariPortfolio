@@ -1360,14 +1360,10 @@ nav a:hover::after{width:100%;}
 
 /* Touch screens: don't depend on hover for layout */
 @media (hover: none) and (pointer: coarse){
-  .proj-card-flip:hover .proj-card-flip-inner{
-    transform: none;
-  }
-
+  .proj-card-flip:hover .proj-card-flip-inner{ transform: none; }
+  .proj-card-flip.flipped .proj-card-flip-inner{ transform: rotateY(180deg); }
   .panel:hover,
   .about-part:hover,
   .skill-card:hover,
-  .post-card:hover{
-    transform: none;
-  }
+  .post-card:hover{ transform: none; }
 }
