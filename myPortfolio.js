@@ -504,3 +504,14 @@ function animateStars() {
 }
 
 animateStars();
+// Tap-to-flip on touch screens
+if (window.matchMedia('(hover: none)').matches) {
+  document.querySelectorAll('.proj-card-flip').forEach(function(card) {
+    card.addEventListener('click', function() {
+      card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('.flip-hint').forEach(function(h) {
+    h.textContent = 'tap to see details';
+  });
+}
