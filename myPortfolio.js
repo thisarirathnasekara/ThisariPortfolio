@@ -461,8 +461,8 @@ window.addEventListener('scroll', function() {
 }, { passive: true });
 
 function resetStarPositions() {
-  stars.forEach(function(star) {
-    star.element.style.transform = '';
+    stars.forEach(function(star) {
+    star.element.style.translate = '';
     star.currentX = 0;
     star.currentY = 0;
   });
@@ -495,7 +495,7 @@ function animateStars() {
         star.currentX = newX;
         star.currentY = newY;
         
-        star.element.style.transform = 'translate(' + newX + 'px, ' + newY + 'px)';
+        star.element.style.translate = newX + 'px ' + newY + 'px';
       }
     });
   }
