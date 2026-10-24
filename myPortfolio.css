@@ -723,6 +723,7 @@ nav a:hover::after{width:100%;}
   gap:6px;
   z-index:15;
   cursor:default;
+  pointer-events:none;
   opacity:0;
   animation:secretHintAppear 1s ease 8s forwards;
   transition:opacity .4s ease;
