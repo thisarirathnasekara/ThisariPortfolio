@@ -505,7 +505,7 @@ function animateStars() {
 
 animateStars();
 // Tap-to-flip on touch screens
-if (window.matchMedia('(hover: none)').matches) {
+if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
   document.querySelectorAll('.proj-card-flip').forEach(function(card) {
     card.addEventListener('click', function() {
       card.classList.toggle('flipped');
